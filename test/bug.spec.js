@@ -2,7 +2,6 @@ import path from 'path'
 import { promises as fsPromises } from 'fs'
 
 import test from 'ava'
-import del from 'del'
 import mkdirp from 'mkdirp'
 
 test.beforeEach(async (t) => {
@@ -11,11 +10,8 @@ test.beforeEach(async (t) => {
   t.context.dst = await fsPromises.mkdtemp(path.join(root, 'foo-'))
 })
 
-test.afterEach.always(async (t) => {
-  await del(t.context.dst)
-})
-
 test('bug', async (t) => {
+  await fsPromises.writeFile(path.join(t.context.dst, 'foo'), 'bar')
   t.pass()
 })
 

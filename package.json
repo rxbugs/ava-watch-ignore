@@ -12,7 +12,6 @@
   "license": "ISC",
   "devDependencies": {
     "ava": "^4.0.1",
-    "del": "^6.0.0",
     "mkdirp": "^1.0.4"
   }
 }
